@@ -1,57 +1,17 @@
-import React, { useEffect, useState } from 'react'
-import './App.css';
-import Recipe from './Recipe';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import HomePage from './home';
+import ShowRecipes from './Recipes';
 
 const App = () => {
-const APP_ID = "de8a87dc";
-const APP_KEY = "c351dbe5e424d67931ce51d905461213";
-const [recipes, setRecipes] = useState([]);
-const [search, setSearch] = useState("");
-const [query, setQuery] = useState("paneer");
-useEffect(() => {
-	getRecipes();
-}, [query])
-const getRecipes = async () => {
-	const response = await fetch
-		(`https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}`);
-	const data = await response.json();
-	setRecipes(data.hits);
-	// console.log(data);
-
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/recipes" element={<ShowRecipes />} />
+      </Routes>
+    </Router>
+  );
 };
-const updateSearch = e => {
-	setSearch(e.target.value);
-};
-const getSearch = e => {
-	e.preventDefault();
-	setQuery(search);
-	setSearch("");
-}
-
-return (
-	<div className="App">
-	<form className="search-form" onSubmit={getSearch} >
-		<input className="search-bar" type="text" value={search}
-			onChange={updateSearch} />
-		<button className="search-button" type="submit" >
-			Search
-		</button>
-	</form>
-	<div className="recipes">
-		{recipes.map(recipe => (
-		<Recipe
-			key={recipe.recipe.label}
-			title={recipe.recipe.label}
-			calories={recipe.recipe.calories}
-			image={recipe.recipe.image}
-			ingredients={recipe.recipe.ingredients}
-		/>
-
-		))}
-	</div>
-
-	</div>
-);
-}
 
 export default App;

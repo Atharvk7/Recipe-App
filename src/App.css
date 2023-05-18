@@ -1,6 +1,14 @@
 .App{
-  min-height: 100vh;
-  background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+  height:full;
+  background-image: url("https://wallpapercave.com/wp/wp11935665.jpg");
+  object-fit:contain;
+  min-width:full;
+  }
+  .names{
+    color:pink;
+  }
+  .names:hover{
+    color:white;
   }
   .search-form{
   min-height: 10vh;
@@ -16,20 +24,42 @@
   box-shadow: 5px 10px #979b91;
   }
   .search-button{
-  background: #4da1ab;
-  border: 5px solid white;
+  background: #f4f7f8;
+  height:40px;
   border-radius: 8px;
-  padding: 10px 20px;
-  color: white;
+  padding: 1px 20px;
+  color: rgb(6, 5, 5);
   font-size: larger;
   margin: 0 0 0 10px;
   }
   .search-button:hover {
   background-color:#fa709a ;
+  background-color: black;
+  color:white;
   }
   .recipes{
+  
+color:white;
+margin-left:27vw;
   display: flex;
-  justify-content: space-around;
+  width:45vw;
+  justify-content: center;
   flex-wrap: wrap;
   }
   
+.button{
+  
+  background-image: linear-gradient(to right,green,yellow);
+  width:95px;
+  height:40px;
+  cursor:pointer;
+  color:white;
+  border-radius: 10px;
+  transition: border 10ms;
+}
+.button:hover{
+  background-color:white;
+  background-image: linear-gradient(to right, white,white);
+  color:red;
+  border:5px solid cyan;
+}
